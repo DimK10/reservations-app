@@ -1,0 +1,8 @@
+/target/
+/client/target/
+/service/target/
+/core/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+
+/.idea/
