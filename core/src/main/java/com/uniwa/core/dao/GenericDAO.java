@@ -5,11 +5,30 @@ import com.uniwa.core.model.BaseEntity;
 import java.util.List;
 
 // TODO add BaseEntity
-interface GenericDAO <T extends BaseEntity, ID> {
+public abstract class GenericDAO <T extends BaseEntity, ID> {
 
-    List<T> findAll();
-    T findById(ID id);
-    void save(Class<T> entity);
-    T update(T entity);
-    void delete(ID id);
+    private final Class<T> entityType;
+
+    protected GenericDAO(Class<T> entityType) {
+        this.entityType = entityType;
+    }
+
+    protected List<T> findAll() {
+        // todo add implementation with serialization process
+        return null;
+    }
+    protected T findById(ID id) {
+        // todo add implementation with serialization process
+        return null;
+    }
+    protected void save(T entity) {
+        // todo add implementation with serialization process
+    }
+    protected T update(T oldEntity, T newEntity) {
+        // todo add implementation with serialization process
+        return null;
+    }
+    protected void delete(ID id) {
+        // todo add implementation with serialization process
+    }
 }
