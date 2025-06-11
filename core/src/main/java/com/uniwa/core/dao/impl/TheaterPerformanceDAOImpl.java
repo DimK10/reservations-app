@@ -6,9 +6,20 @@ import com.uniwa.core.model.TheaterPerformance;
 
 import java.util.List;
 
+// Singleton
 public class TheaterPerformanceDAOImpl extends GenericDAO<TheaterPerformance, Long> implements ITheaterPerformanceDAO {
 
-    public TheaterPerformanceDAOImpl() {
+    private static ITheaterPerformanceDAO INSTANCE;
+
+    public static ITheaterPerformanceDAO getInstance() {
+        if (INSTANCE == null) {
+            INSTANCE = new TheaterPerformanceDAOImpl();
+        }
+
+        return INSTANCE;
+    }
+
+    private TheaterPerformanceDAOImpl() {
         super(TheaterPerformance.class);
     }
 

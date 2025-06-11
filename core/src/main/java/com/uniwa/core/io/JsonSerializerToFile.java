@@ -20,7 +20,7 @@ public class JsonSerializerToFile {
             dataDir.mkdirs();
         }
 
-        File outFile = new File(dataDir, clazz.getTypeName() + "s.json");
+        outFile = new File(dataDir, clazz.getTypeName() + "s.json");
     }
 
 
@@ -33,7 +33,7 @@ public class JsonSerializerToFile {
     }
 
 
-    public void serialize(Object object) {
+    public synchronized void serialize(Object object) {
         ObjectMapper mapper = new ObjectMapper();
 
         try {

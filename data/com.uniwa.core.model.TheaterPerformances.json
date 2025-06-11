@@ -1,0 +1,11 @@
+{
+  "id": 1,
+  "title": "Testing save theater performance",
+  "place": { "id": 1, "address": "An address", "postalCode": "12345" },
+  "performanceDate": 1749669279496,
+  "protagonist": {
+    "id": 1,
+    "name": "THE Protagonist! ;)",
+    "profession": "PERFORMER"
+  }
+}

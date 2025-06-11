@@ -1,5 +1,6 @@
 package com.uniwa.core.dao;
 
+import com.uniwa.core.io.JsonSerializerToFile;
 import com.uniwa.core.model.BaseEntity;
 
 import java.util.List;
@@ -9,8 +10,11 @@ public abstract class GenericDAO <T extends BaseEntity, ID> {
 
     private final Class<T> entityType;
 
+    private final JsonSerializerToFile jsonSerializerToFile;
+
     protected GenericDAO(Class<T> entityType) {
         this.entityType = entityType;
+        this.jsonSerializerToFile = JsonSerializerToFile.getInstance(entityType);
     }
 
     protected List<T> findAll() {
@@ -22,7 +26,7 @@ public abstract class GenericDAO <T extends BaseEntity, ID> {
         return null;
     }
     protected void save(T entity) {
-        // todo add implementation with serialization process
+        this.jsonSerializerToFile.serialize(entity);
     }
     protected T update(T oldEntity, T newEntity) {
         // todo add implementation with serialization process
