@@ -8,10 +8,8 @@ import com.uniwa.service.ITheaterPerformanceService;
 import com.uniwa.service.impl.TheaterPerformanceServiceImpl;
 
 import java.util.Date;
-import java.util.Scanner;
 
 public class Main {
-
 
 
     public static void main(String[] args) {
@@ -26,26 +24,25 @@ public class Main {
         Out out = Output.getInstance();
         out.writeRedText("Testing save theater performance");
 
-        TheaterPerformance tp = new TheaterPerformance();
-        tp.setId(1L);
-        tp.setTitle("Testing save theater performance");
-
         Person protagonist = new Person();
         protagonist.setId(1L);
         protagonist.setName("THE Protagonist! ;)");
 
         protagonist.setProfession(Profession.PERFORMER);
 
-        tp.setProtagonist(protagonist);
-
         Place place = new Place();
         place.setId(1L);
         place.setAddress("An address");
         place.setPostalCode("12345");
 
-        tp.setPlace(place);
+        TheaterPerformance tp = new TheaterPerformance.Builder()
+                .setId(1L)
+                .setTitle("Testing save theater performance")
+                .setPlace(place)
+                .setPerformanceDate(new Date())
+                .setProtagonist(protagonist)
+                .build();
 
-        tp.setPerformanceDate(new Date());
 
         ITheaterPerformanceService theaterPerformanceService = TheaterPerformanceServiceImpl.getInstance();
 

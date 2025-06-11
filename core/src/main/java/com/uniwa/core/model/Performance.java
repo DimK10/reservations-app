@@ -2,7 +2,7 @@ package com.uniwa.core.model;
 
 import java.util.Date;
 
-public class Performance extends BaseEntity {
+public abstract class Performance extends BaseEntity {
 
     private String title;
     private Place place;
